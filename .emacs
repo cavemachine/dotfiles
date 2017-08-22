@@ -65,6 +65,7 @@
 (add-hook 'after-init-hook #'global-flycheck-mode)
 (setq flycheck-check-syntax-automatically '(mode-enabled save))
 (setq vc-handled-backends nil) 
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   
 (global-set-key [f5] 'recompile)
@@ -73,12 +74,16 @@
 (global-set-key [f8] 'yafolding-show-element)
 (global-set-key [C-f7] 'yafolding-hide-all)
 (global-set-key [C-f8] 'yafolding-show-all)
+(global-set-key [M-up] 'move-text-region-up)
+(global-set-key [M-down] 'move-text-region-down)
 
+(global-set-key [C-f1] 'imenu-list-smart-toggle)
 (global-set-key [f9] 'sr-speedbar-toggle)
-(global-set-key [C-f10] 'ibuffer)
 (global-set-key [f11] 'other-window)
+(global-set-key [C-f10] 'ibuffer)
+
 (global-set-key [C-f11] 'delete-window)
-(global-set-key [f12] 'next-buffer)
+(global-set-key [f12] 'cbm-cycle)
 (global-set-key [C-f12] 'kill-this-buffer)
 (cua-mode 1)
 (global-set-key (kbd "M-O 5 m") 'shrink-window)
@@ -95,55 +100,45 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ace-popup-menu-mode t)
- '(ansi-color-names-vector
-   ["#2e3436" "#a40000" "#4e9a06" "#c4a000" "#204a87" "#5c3566" "#729fcf" "#eeeeec"])
- '(browse-url-browser-function (quote browse-url-chrome))
- '(browse-url-chrome-program "opera")
- '(column-number-mode t)
- '(company-c-headers-path-system (quote ("/usr/include/c++/7.1.1" "/usr/local/include/")))
- '(company-quickhelp-color-background "gray20")
- '(company-quickhelp-color-foreground "gainsboro")
- '(cua-mode t nil (cua-base))
- '(custom-enabled-themes (quote (tango-dark)))
- '(ede-project-directories (quote ("/home/marcus/Code/projectx")))
+ '(ansi-color-faces-vector
+   [default bold shadow italic underline bold bold-italic bold])
+ '(custom-enabled-themes (quote (Cavemachine_theme)))
+ '(custom-safe-themes
+   (quote
+    ("61cb13c3dcb029ebd9f2d9bc5cc3bb74ff4c3650538b1cbc184d7480c1e135ec" "fdc2178a29ab2031790c25952991c238fa74b409a60a00475031636d26b3fdd7" "82d2cac368ccdec2fcc7573f24c3f79654b78bf133096f9b40c20d97ec1d8016" "1b8d67b43ff1723960eb5e0cba512a2c7a2ad544ddb2533a90101fd1852b426e" "bb08c73af94ee74453c90422485b29e5643b73b05e8de029a6909af6a3fb3f58" "628278136f88aa1a151bb2d6c8a86bf2b7631fbea5f0f76cba2a0079cd910f7d" "06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" default)))
+ '(fci-rule-color "#003f8e")
+ '(flycheck-color-mode-line-face-to-color (quote mode-line-buffer-id))
  '(package-selected-packages
    (quote
-    (flycheck ivy ido-grid-mode ido-vertical-mode company-quickhelp magit nlinum yafolding dashboard smex yasnippet-snippets ## shell-pop powerline sr-speedbar cmake-mode cmake-ide yasnippet)))
+    (move-text cbm imenu-list idomenu flycheck ivy ido-grid-mode company-quickhelp nlinum yafolding dashboard smex yasnippet-snippets ## shell-pop powerline sr-speedbar yasnippet)))
  '(semantic-mode t)
- '(sublimity-mode nil)
- '(tool-bar-mode nil))
+ '(tool-bar-mode nil)
+ '(vc-annotate-background nil)
+ '(vc-annotate-color-map
+   (quote
+    ((20 . "#ff9da4")
+     (40 . "#ffc58f")
+     (60 . "#ffeead")
+     (80 . "#d1f1a9")
+     (100 . "#99ffff")
+     (120 . "#bbdaff")
+     (140 . "#ebbbff")
+     (160 . "#ff9da4")
+     (180 . "#ffc58f")
+     (200 . "#ffeead")
+     (220 . "#d1f1a9")
+     (240 . "#99ffff")
+     (260 . "#bbdaff")
+     (280 . "#ebbbff")
+     (300 . "#ff9da4")
+     (320 . "#ffc58f")
+     (340 . "#ffeead")
+     (360 . "#d1f1a9"))))
+ '(vc-annotate-very-old-color nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :background "black" :foreground "#959595" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 113 :width normal :foundry "1ASC" :family "Liberation Mono"))))
- '(bold ((t nil)))
- '(bold-italic ((t (:slant italic))))
- '(company-scrollbar-bg ((t (:background "gray35"))))
- '(company-scrollbar-fg ((t (:background "gray60"))))
- '(company-template-field ((t (:background "gray30" :foreground "light gray"))))
- '(company-tooltip ((t (:background "gray30" :foreground "light gray"))))
- '(company-tooltip-annotation ((t (:foreground "tan1"))))
- '(company-tooltip-common ((t (:foreground "light blue"))))
- '(company-tooltip-selection ((t (:background "gray60"))))
- '(cursor ((t (:background "gainsboro"))))
- '(custom-variable-tag ((t (:foreground "steel blue"))))
- '(font-lock-comment-face ((t (:foreground "gray35"))))
- '(font-lock-constant-face ((t (:foreground "#ad5b20"))))
- '(font-lock-function-name-face ((t (:foreground "gray60"))))
- '(font-lock-keyword-face ((t (:foreground "#ad5b20"))))
- '(font-lock-preprocessor-face ((t nil)))
- '(font-lock-string-face ((t (:foreground "#7390b9"))))
- '(font-lock-type-face ((t (:foreground "#ba7633"))))
- '(font-lock-variable-name-face ((t (:foreground "gray60"))))
- '(highlight ((t (:background "gray10" :foreground "gray"))))
- '(minibuffer-prompt ((t (:foreground "dim gray"))))
- '(mode-line ((t (:background "gray15" :foreground "gray50" :box (:line-width -1 :style released-button)))))
- '(mode-line-inactive ((t (:background "gray5" :foreground "gray30" :box (:line-width -1 :style released-button)))))
- '(shadow ((t (:foreground "grey40"))))
- '(show-paren-match ((t (:background "gray10"))))
- '(tty-menu-disabled-face ((t (:background "color-237" :foreground "color-243"))))
- '(tty-menu-enabled-face ((t (:background "color-237" :foreground "color-250" :weight bold))))
- '(tty-menu-selected-face ((t (:background "color-17")))))
+ '(imenu-list-entry-face-0 ((t (:inherit imenu-list-entry-face :foreground "PaleGreen4"))))
+ '(imenu-list-entry-face-1 ((t (:inherit imenu-list-entry-face :foreground "gray70")))))
