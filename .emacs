@@ -6,7 +6,7 @@
 (when (< emacs-major-version 24)
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
 (package-initialize)
-
+(package-install-selected-packages)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
   
@@ -21,18 +21,20 @@
 (setq inhibit-startup-message t)
  
 (setq compile-command "make -k")
+;;(setq compile-command "g++ -o ntest main.cpp -lncurses")
 (defun run_compiled ()
   (interactive)
   (shell-command "xterm -e bash -c './cave_tetris ; read'"))
- 
+;;  (shell-command "xterm -e bash -c './ntest ; read'"))
+  
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
 
 ;; (yas-global-mode 1)
 (add-hook 'after-init-hook 'global-company-mode)
-;;(with-eval-after-load 'company
-;;  (add-to-list 'company-backends 'company-c-headers))
+(with-eval-after-load 'company
+  (add-to-list 'company-backends 'company-c-headers))
 (company-quickhelp-mode 1)
 
 (require 'smex)
@@ -83,8 +85,8 @@
 (global-set-key [C-f10] 'ibuffer)
 
 (global-set-key [C-f11] 'delete-window)
-(global-set-key [f12] 'cbm-cycle)
-(global-set-key [C-f12] 'kill-this-buffer)
+(global-set-key [f12] 'rotate-window)
+(global-set-key [C-f12] 'rotate-layout)
 (cua-mode 1)
 (global-set-key (kbd "M-O 5 m") 'shrink-window)
 (global-set-key (kbd "M-O 5 k") 'enlarge-window)
@@ -110,7 +112,7 @@
  '(flycheck-color-mode-line-face-to-color (quote mode-line-buffer-id))
  '(package-selected-packages
    (quote
-    (move-text cbm imenu-list idomenu flycheck ivy ido-grid-mode company-quickhelp nlinum yafolding dashboard smex yasnippet-snippets ## shell-pop powerline sr-speedbar yasnippet)))
+    (smex rotate company-c-headers move-text cbm imenu-list idomenu flycheck ivy ido-grid-mode company-quickhelp nlinum yafolding dashboard yasnippet-snippets ## sr-speedbar yasnippet)))
  '(semantic-mode t)
  '(tool-bar-mode nil)
  '(vc-annotate-background nil)
