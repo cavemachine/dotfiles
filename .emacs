@@ -21,11 +21,12 @@
 (setq inhibit-startup-message t)
  
 (setq compile-command "make -k")
-;;(setq compile-command "g++ -o ntest main.cpp -lncurses")
+;;(setq compile-command "g++ -o ntest main.cpp")
+
 (defun run_compiled ()
   (interactive)
   (shell-command "xterm -e bash -c './cave_tetris ; read'"))
-;;  (shell-command "xterm -e bash -c './ntest ; read'"))
+;;  (shell-command "xterm -e bash -c '~/Code/tree/ntest ; read'"))
   
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -142,5 +143,6 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(eshell-prompt ((t (:foreground "dim gray" :weight bold))))
  '(imenu-list-entry-face-0 ((t (:inherit imenu-list-entry-face :foreground "PaleGreen4"))))
  '(imenu-list-entry-face-1 ((t (:inherit imenu-list-entry-face :foreground "gray70")))))
