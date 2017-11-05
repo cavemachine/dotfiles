@@ -19,8 +19,8 @@
 (setq compile-command "gcc -o test_alg merge.c")
 (defun run_compiled ()
   (interactive)
-  (shell-command "xterm -e bash -c './test_alg ; read'"))
-
+;;  (shell-command "xterm -e bash -c './test_alg ; read'"))
+  (shell-command "./test_alg ; read"))
 (global-set-key [escape] 'keyboard-escape-quit)
 (global-set-key [f5] 'recompile)
 (global-set-key [f6] 'run_compiled)
@@ -31,8 +31,10 @@
 (global-set-key [f7] 'dumb-jump-back)
 (setq dumb-jump-selector 'nil) 
 
+
 (add-hook 'after-init-hook 'global-company-mode)
 (add-hook 'after-init-hook 'yafolding-mode)
+(add-hook 'after-init-hook 'semantic-mode)
 ;;(add-to-list 'same-window-buffer-names "*compilation*")
 (setq compilation-finish-function
   (lambda (buf str)
@@ -57,7 +59,7 @@
  '(custom-enabled-themes (quote (deeper-blue)))
  '(package-selected-packages
    (quote
-    (ivy dumb-jump company-irony-c-headers company-irony irony yafolding hideshowvis company-c-headers company)))
+    (helm ivy dumb-jump company-irony-c-headers company-irony irony yafolding hideshowvis company-c-headers company)))
  '(safe-local-variable-values
    (quote
     ((company-clang-arguments "-I/usr/include/gtk-3.0" "-I/usr/include/glib-2.0" "-I/usr/lib64/glib-2.0/include" "-I/usr/include/atk-1.0" "-I/usr/include/cairo" "-I/usr/include/pango-1.0" "-I/usr/include/pixman-1" "-I/usr/include/freetype2" "-I/usr/include/libpng12" "-I/usr/include/gdk-pixbuf-2.0/"))))
@@ -68,15 +70,14 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :background "black" :foreground "gray70" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 126 :width normal :foundry "ADBO" :family "Source Code Pro"))))
- '(cursor ((t (:background "dim gray"))))
- '(font-lock-constant-face ((t (:foreground "DarkOrange3"))))
- '(font-lock-function-name-face ((t (:foreground "DarkOrange3"))))
- '(font-lock-keyword-face ((t (:foreground "darkorange3"))))
- '(font-lock-preprocessor-face ((t (:foreground "gray80"))))
- '(font-lock-string-face ((t (:foreground "light slate gray"))))
- '(font-lock-type-face ((t (:foreground "DarkOrange3"))))
- '(font-lock-variable-name-face ((t (:foreground "gray70"))))
- '(mode-line ((t (:background "gray30" :foreground "black" :box (:line-width 1 :style released-button)))))
- '(mode-line-buffer-id ((t (:foreground "gray"))))
- '(mode-line-inactive ((t (:background "gray10" :foreground "gray50" :box (:line-width 1 :color "gray5"))))))
+ '(company-tooltip ((t (:background "black" :foreground "black" :weight bold))))
+ '(company-tooltip-selection ((t (:background "green"))))
+ '(font-lock-builtin-face ((t (:foreground "yellow"))))
+ '(font-lock-constant-face ((t (:foreground "black" :weight bold))))
+ '(font-lock-function-name-face ((t (:foreground "yellow"))))
+ '(font-lock-keyword-face ((t (:foreground "yellow"))))
+ '(font-lock-string-face ((t (:foreground "black" :weight bold))))
+ '(font-lock-type-face ((t (:foreground "yellow"))))
+ '(font-lock-variable-name-face ((t nil)))
+ '(menu ((t (:background "black" :foreground "black" :inverse-video t :weight bold))))
+ '(mode-line ((t (:foreground "black" :weight bold)))))
