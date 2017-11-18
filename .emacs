@@ -45,6 +45,8 @@
            "2 sec" nil 'delete-windows-on
            (get-buffer-create "*compilation*"))
           (message "No Compilation Errors!")))))
+
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
@@ -63,21 +65,29 @@
  '(safe-local-variable-values
    (quote
     ((company-clang-arguments "-I/usr/include/gtk-3.0" "-I/usr/include/glib-2.0" "-I/usr/lib64/glib-2.0/include" "-I/usr/include/atk-1.0" "-I/usr/include/cairo" "-I/usr/include/pango-1.0" "-I/usr/include/pixman-1" "-I/usr/include/freetype2" "-I/usr/include/libpng12" "-I/usr/include/gdk-pixbuf-2.0/"))))
+ '(setq cursor-type t)
  '(tool-bar-mode nil)
  '(tooltip-mode nil))
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(default ((t (:inherit nil :stipple nil :background "black" :foreground "white" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 1 :width normal :foundry "default" :family "default"))))
  '(company-tooltip ((t (:background "black" :foreground "black" :weight bold))))
  '(company-tooltip-selection ((t (:background "green"))))
+ '(cursor ((t (:background "white"))))
  '(font-lock-builtin-face ((t (:foreground "yellow"))))
- '(font-lock-constant-face ((t (:foreground "black" :weight bold))))
+ '(font-lock-constant-face ((t (:foreground "yellow"))))
  '(font-lock-function-name-face ((t (:foreground "yellow"))))
  '(font-lock-keyword-face ((t (:foreground "yellow"))))
- '(font-lock-string-face ((t (:foreground "black" :weight bold))))
+ '(font-lock-preprocessor-face ((t (:foreground "color-240"))))
+ '(font-lock-string-face ((t (:foreground "white"))))
  '(font-lock-type-face ((t (:foreground "yellow"))))
- '(font-lock-variable-name-face ((t nil)))
+ '(font-lock-variable-name-face ((t (:foreground "white"))))
  '(menu ((t (:background "black" :foreground "black" :inverse-video t :weight bold))))
- '(mode-line ((t (:foreground "black" :weight bold)))))
+ '(mode-line ((t (:background "color-235" :foreground "black" :box (:line-width 1 :style released-button) :weight bold))))
+ '(mode-line-buffer-id ((t (:foreground "brightblack" :weight bold))))
+ '(mode-line-highlight ((t (:box (:line-width 2 :color "green" :style released-button)))))
+ '(mode-line-inactive ((t (:background "color-235" :foreground "black" :box (:line-width 1 :color "gray40"))))))
